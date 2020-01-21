@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock Paper Scisors</title>
+</head>
+
+<body>
+    <link rel="stylesheet" href="./style.css">
+    <header>
+        <h1 class="unselect">Rock Paper Scisors</h1>
+    </header>
+    <div class="container">
+        <div class="score">
+            <div class="badge userBadge unselect">You</div>
+            <div>
+                <span id="userScore">0</span> : <span id="compScore">0</span>
+            </div>
+            <div class="badge compBadge unselect">Comp</div>
+        </div>
+        <div class="result">Results Will be displayed here</div>
+        <div class="resultImgs">
+            <div class="userImg resultImg">
+                <span class="resultImgTxt userImgTxt unselect">Your choice</span>
+                <img id="usrImg" src="./images/rock.png.jpg" alt="Your Choice">
+            </div>
+            <div class="compImg resultImg">
+                <span class="resultImgTxt compImgTxt unselect">Computer's choice</span>
+                <img id="compImg" src="" alt="Computers Choice">
+            </div>
+        </div>
+        <p class="topMsg unselect">Choose your move</p>
+        <div class="choices">
+            <div class="rock choice unselect">
+                <img src="./images/rock.jpg" alt="Rock">
+            </div>
+            <div class="paper choice unselect">
+                <img src="./images/paper.jpg" alt="Paper">
+            </div>
+            <div class="scisor choice unselect">
+                <img src="./images/scisors.jpg" alt="Scisors">
+            </div>
+        </div>
+        <p class="btmMsg unselect">Have fun...</p>
+        <button class="btn">Reset</button>
+        <span class="creator unselect">Created by Shashank</span>
+    </div>
+    <script src="./script.js" defer></script>
+
+</body>
+
+</html>

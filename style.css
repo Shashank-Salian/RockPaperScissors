@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 0px 4vw;
+    background-color: rgb(188, 199, 202);
+    height: 92vh;
+    font-family: monospace;
+}
+
+header {
+    text-align: center;
+    font-family: sans-serif;
+    height: 8vh;
+    background-color: aliceblue;
+}
+
+.unselect {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.score {
+    width: 200px;
+    position: relative;
+    top: 10px;
+    margin: 0px auto 40px auto;
+    height: 50px;
+    border: 2px solid whitesmoke;
+    text-align: center;
+    background-color: rgba(104, 167, 164, 0.555);
+    font-size: 2.5em;
+    position: relative;
+}
+
+.badge {
+    background-color: tomato;
+    display: inline;
+}
+
+.userBadge {
+    position: absolute;
+    left: -20px;
+    font-size: 20px;
+    top: 10px;
+}
+
+.compBadge {
+    position: absolute;
+    font-size: 20px;
+    right: -30px;
+    top: 10px;
+}
+
+.result {
+    text-align: center;
+    margin: 10px 0px;
+    font-size: 1.8rem;
+    font-weight: bolder;
+}
+
+.resultImgs {
+    display: none;
+    height: 120px;
+    position: relative;
+}
+
+.resultImg {
+    width: 100px;
+}
+
+.resultImgTxt {
+    font-weight: bold;
+}
+
+.userImgTxt {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.compImgTxt {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.userImg img {
+    width: 100px;
+    transform: rotate(90deg);
+    margin-left: 15px;
+}
+
+.compImg img{
+    width: 100px;
+    position: absolute;
+    right: 0;
+    top: 13px;
+    transform: rotate(-90deg);
+    margin-right: 15px;
+}
+
+.topMsg {
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    color: rgb(49, 48, 48);
+    margin: 30px 0px;
+}
+
+.choice {
+    display: inline-block;
+}
+
+.choices img {
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    width: 100px;
+    transition: all .3s ease;
+}
+
+.choices {
+    text-align: center;
+}
+
+.btmMsg {
+    text-align: center;
+    margin: 30px 0px;
+    font-size: 1rem;
+}
+
+.creator {
+    position: absolute;
+    bottom: 3px;
+    left: calc(50% - 60px);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+}
+
+.choices img:hover {
+    border-radius: 50%;
+    background-color: rgba(44, 212, 204, 0.555);
+}
+
+.btn {
+    font-size: 1.5rem;
+    width: 75px;
+    height: 40px;
+    position: relative;
+    left: calc(50% - 37.5px);
+    background-color: rgb(142, 169, 177);
+    border: 1px dotted;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgb(103, 158, 173);
+    border-radius: 4px;
+}
+
+
+@media screen and (min-width: 300px) {
+    .score {
+        top: 30px;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .container {
+        margin: 0;
+    }
+}
