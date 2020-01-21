@@ -10,7 +10,6 @@ const resImgs = document.querySelector(".resultImgs");
 const compImg = document.querySelector("#compImg");
 const userImg = document.querySelector("#usrImg");
 
-console.log(userImg);
 
 var compSc = 0,
     userSc = 0;
