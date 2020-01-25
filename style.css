@@ -137,18 +137,15 @@ header {
     text-align: center;
 }
 
-.btmMsg {
-    text-align: center;
-    margin: 25px 0px;
-    font-size: 1rem;
+.links {
+    position: absolute;
+    bottom: 2px;
+    font-size: 30px;
+    left: calc(50% - 30px);
 }
 
-.creator {
-    position: absolute;
-    bottom: 3px;
-    left: calc(50% - 60px);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 10px;
+.fab{
+    color: black;
 }
 
 .choices img:hover {
@@ -166,6 +163,8 @@ header {
     border: 1px dotted;
     cursor: pointer;
     border-radius: 2px;
+    margin: 25px 0px;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
