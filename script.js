@@ -9,6 +9,7 @@ const btn = document.querySelector(".btn");
 const resImgs = document.querySelector(".resultImgs");
 const compImg = document.querySelector("#compImg");
 const userImg = document.querySelector("#usrImg");
+const resImg = document.querySelectorAll(".resultImg")
 
 var compSc = 0,
   userSc = 0;
@@ -20,6 +21,8 @@ function resetValue(){
   user_score.innerHTML = userSc;
   comp_score.innerHTML = compSc;
   resImgs.style.opacity = "0";
+  resImg[0].style.display = "none";
+  resImg[1].style.display = "none";
   for (var i = 0; i < 3; i++)
     choice[i].style.border = "2px solid white";
 }
@@ -71,27 +74,23 @@ function startGame(userChoice, compChoice) {
 
   if (userChoice === "r") {
     userImg.src = "./images/rock.jpg";
-    resImgs.style.display = "block";
   } else if (userChoice === "p") {
     userImg.src = "./images/paper.jpg";
-    resImgs.style.display = "block";
   } else {
     userImg.src = "./images/scisors.jpg";
-    resImgs.style.display = "block";
   }
 
   if (compChoice === "r") {
     compImg.src = "./images/rock.jpg";
-    resImgs.style.display = "block";
   } else if (compChoice === "p") {
     compImg.src = "./images/paper.jpg";
-    resImgs.style.display = "block";
   } else {
     compImg.src = "./images/scisors.jpg";
-    resImgs.style.display = "block";
   }
 
   resImgs.style.opacity = "1";
+  resImg[0].style.display = "block";
+  resImg[1].style.display = "block";
 
   return w;
 }
@@ -115,7 +114,7 @@ function changeColor(WL, c){
 rock.addEventListener("click", () => {
   for (var i = 0; i < 3; i++) choice[i].style.border = "2px solid white";
   var compC = compChoice();
-  var b = startGame("p", compC);
+  var b = startGame("r", compC);
   changeColor(b, 0);
   winLose(userSc, compSc);
 });
@@ -137,5 +136,5 @@ scisor.addEventListener("click", () => {
 });
 
 btn.addEventListener("click", () => {
-  resetValue();
+  resetValue()
 });
