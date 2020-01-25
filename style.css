@@ -79,6 +79,7 @@ header {
 
 .resultImg {
     width: 100px;
+    display: none;
 }
 
 .resultImgTxt {
