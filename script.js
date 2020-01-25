@@ -10,121 +10,132 @@ const resImgs = document.querySelector(".resultImgs");
 const compImg = document.querySelector("#compImg");
 const userImg = document.querySelector("#usrImg");
 
-console.log("Hello...");
-
 var compSc = 0,
-    userSc = 0;
+  userSc = 0;
+
+function resetValue(){
+  result.innerHTML = "Results Will be displayed here";
+  compSc = 0;
+  userSc = 0;
+  user_score.innerHTML = userSc;
+  comp_score.innerHTML = compSc;
+  resImgs.style.opacity = "0";
+  for (var i = 0; i < 3; i++)
+    choice[i].style.border = "2px solid white";
+}
+
+function winLose(userSc, compSc){
+  if (userSc >= 20) {
+    alert("Hurray...\nYou won...!");
+    resetValue();
+  } else if (compSc >= 20) {
+    alert("Sorry...\nYou lost from computer");
+    resetValue();
+  }
+}
 
 function updateResult(res) {
-    if (res === "w") {
-        userSc = ++userSc;
-        result.innerText = "You won : )";
-        user_score.innerText = userSc;
-
-    } else if (res === "l") {
-        compSc = ++compSc;
-        comp_score.innerText = compSc
-        result.innerText = "You lost : <";
-    } else {
-        result.innerText = "Its a Draw : |"
-    }
+  if (res === "w") {
+    userSc = ++userSc;
+    result.innerText = "You won : )";
+    user_score.innerText = userSc;
+  } else if (res === "l") {
+    compSc = ++compSc;
+    comp_score.innerText = compSc;
+    result.innerText = "You lost : <";
+  } else {
+    result.innerText = "Its a Draw : |";
+  }
 }
 
 function startGame(userChoice, compChoice) {
-    var w;
-    switch (userChoice + compChoice) {
-        case "rs":
-        case "pr":
-        case "sp":
-            updateResult("w");
-            w = "w";
-            break;
-        case "rp":
-        case "ps":
-        case "sr":
-            updateResult("l");
-            w = "l"
-            break;
-        default:
-            updateResult("d");
-            w = "d";
-            break;
-    }
+  var w;
+  switch (userChoice + compChoice) {
+    case "rs":
+    case "pr":
+    case "sp":
+      updateResult("w");
+      w = "w";
+      break;
+    case "rp":
+    case "ps":
+    case "sr":
+      updateResult("l");
+      w = "l";
+      break;
+    default:
+      updateResult("d");
+      w = "d";
+      break;
+  }
 
-    if (userChoice === "r") {
-        userImg.src = "./images/rock.jpg";
-        resImgs.style.display = "block";
-    } else if(userChoice === "p"){
-        userImg.src = "./images/paper.jpg";
-        resImgs.style.display = "block";
-    } else {
-        userImg.src = "./images/scisors.jpg";
-        resImgs.style.display = "block";
-    }
+  if (userChoice === "r") {
+    userImg.src = "./images/rock.jpg";
+    resImgs.style.display = "block";
+  } else if (userChoice === "p") {
+    userImg.src = "./images/paper.jpg";
+    resImgs.style.display = "block";
+  } else {
+    userImg.src = "./images/scisors.jpg";
+    resImgs.style.display = "block";
+  }
 
-    if(compChoice === "r"){
-        compImg.src = "./images/rock.jpg";
-        resImgs.style.display = "block";
-    } else if(compChoice === "p"){
-        compImg.src = "./images/paper.jpg";
-        resImgs.style.display = "block";
-    } else {
-        compImg.src = "./images/scisors.jpg";
-        resImgs.style.display = "block";
-    }
+  if (compChoice === "r") {
+    compImg.src = "./images/rock.jpg";
+    resImgs.style.display = "block";
+  } else if (compChoice === "p") {
+    compImg.src = "./images/paper.jpg";
+    resImgs.style.display = "block";
+  } else {
+    compImg.src = "./images/scisors.jpg";
+    resImgs.style.display = "block";
+  }
 
-    return w;
+  resImgs.style.opacity = "1";
+
+  return w;
 }
 
 function compChoice() {
-    const comp = ["r", "p", "s"];
-    var a = Math.floor(Math.random() * 3);
-    return comp[a];
+  const comp = ["r", "p", "s"];
+  var a = Math.floor(Math.random() * 3);
+  return comp[a];
 }
 
+function changeColor(WL, c){
+  if(WL === "w"){
+    choice[c].style.border = "2px solid green";
+  } else if(WL === "l"){
+    choice[c].style.border = "2px solid red";
+  } else {
+    choice[c].style.border = "2px solid grey";
+  }
+}
 
 rock.addEventListener("click", () => {
-    for (var i = 0; i < 3; i++)
-        choice[i].style.border = "2px solid white";
-    var compC = compChoice();
-    var b = startGame("r", compC);
-    if (b === "w") {
-        choice[0].style.border = "2px solid green";
-    } else if (b === "l") {
-        choice[0].style.border = "2px solid red";
-    } else {
-        choice[0].style.border = "2px solid grey";
-    }
+  for (var i = 0; i < 3; i++) choice[i].style.border = "2px solid white";
+  var compC = compChoice();
+  var b = startGame("p", compC);
+  changeColor(b, 0);
+  winLose(userSc, compSc);
 });
 
 paper.addEventListener("click", () => {
-    for (var i = 0; i < 3; i++)
-        choice[i].style.border = "2px solid white";
-    var compC = compChoice();
-    var b = startGame("p", compC);
-    if (b === "w") {
-        choice[1].style.border = "2px solid green";
-    } else if (b === "l") {
-        choice[1].style.border = "2px solid red";
-    } else {
-        choice[1].style.border = "2px solid grey";
-    }
+  for (var i = 0; i < 3; i++) choice[i].style.border = "2px solid white";
+  var compC = compChoice();
+  var b = startGame("p", compC);
+  changeColor(b, 1);
+  winLose(userSc, compSc);
 });
 
 scisor.addEventListener("click", () => {
-    for (var i = 0; i < 3; i++)
-        choice[i].style.border = "2px solid white";
-    var compC = compChoice();
-    var b = startGame("s", compC);
-    if (b === "w") {
-        choice[2].style.border = "2px solid green";
-    } else if (b === "l") {
-        choice[2].style.border = "2px solid red";
-    } else {
-        choice[2].style.border = "2px solid grey";
-    }
+  for (var i = 0; i < 3; i++) choice[i].style.border = "2px solid white";
+  var compC = compChoice();
+  var b = startGame("s", compC);
+  changeColor(b, 2);
+  winLose(userSc, compSc);
 });
 
 btn.addEventListener("click", () => {
-    location.reload();
+  resetValue();
 });
