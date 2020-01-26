@@ -173,6 +173,14 @@ header {
     border-radius: 4px;
 }
 
+::-moz-selection{
+    background: #ffffff00;
+}
+
+::selection{
+    background: #ffffff00;
+}
+
 
 @media screen and (min-width: 300px) {
     .score {
