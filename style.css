@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+:root{
+    --col: #5ab6b9;
+}
+
 .container {
     margin: 0px 4vw;
     background-color: rgb(188, 199, 202);
@@ -151,7 +155,7 @@ header {
 
 .choices img:hover {
     border-radius: 50%;
-    background-color: rgba(44, 212, 204, 0.555);
+    background-color: var(--col);
 }
 
 .btn {
@@ -169,16 +173,16 @@ header {
 }
 
 .btn:hover {
-    background-color: rgb(103, 158, 173);
+    background-color: var(--col);
     border-radius: 4px;
 }
 
 ::-moz-selection{
-    background: #ffffff00;
+    background: var(--col);
 }
 
 ::selection{
-    background: #ffffff00;
+    background: var(--col);
 }
 
 
