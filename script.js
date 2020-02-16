@@ -14,6 +14,7 @@ const resImg = document.querySelectorAll(".resultImg")
 var compSc = 0,
   userSc = 0;
 
+/*Resets the scores and erase the results*/
 function resetValue(){
   result.innerHTML = "Results Will be displayed here";
   compSc = 0;
@@ -27,6 +28,7 @@ function resetValue(){
     choice[i].style.border = "2px solid white";
 }
 
+/*Checks if the user/computer finally won (checks if score >= 20) */
 function winLose(userSc, compSc){
   if (userSc >= 20) {
     alert("Hurray...\nYou won...!");
@@ -37,6 +39,7 @@ function winLose(userSc, compSc){
   }
 }
 
+/*Displays the results*/ 
 function updateResult(res) {
   if (res === "w") {
     userSc = ++userSc;
@@ -51,6 +54,7 @@ function updateResult(res) {
   }
 }
 
+/*Checks fro the users choice and computers choice and displays images accordingly*/ 
 function startGame(userChoice, compChoice) {
   var w;
   switch (userChoice + compChoice) {
@@ -95,12 +99,15 @@ function startGame(userChoice, compChoice) {
   return w;
 }
 
+/*Generates computers choice*/ 
 function compChoice() {
   const comp = ["r", "p", "s"];
   var a = Math.floor(Math.random() * 3);
   return comp[a];
 }
 
+
+/*Set the border color of the cirle, depending upon the user won/lost/draw*/ 
 function changeColor(WL, c){
   if(WL === "w"){
     choice[c].style.border = "2px solid green";
